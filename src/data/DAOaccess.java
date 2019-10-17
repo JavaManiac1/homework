@@ -18,7 +18,7 @@ public class DAOaccess {
         //   ResultSet rs;
         String url = "jdbc:oracle:thin:@//localhost:1521/xe";
         String userName = "system";
-        String password = "kom3inator";
+        String password = "Kom3inator$";
         Connection con = null;
 
 
@@ -45,8 +45,8 @@ public class DAOaccess {
           //  rst = smt.getResultSet();
 
            while (rst.next()) {
-                car_id = rst.getString("car_id");
-                car_name = rst.getString("car_name");
+                car_id = rst.getString("idcar");
+                car_name = rst.getString("carmodel");
                 carList.add("car id: " + car_id + "  car name: " + car_name + " ");
             }
 
