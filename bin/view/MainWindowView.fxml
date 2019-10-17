@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="588.0" maxWidth="793.0" minHeight="388.0" minWidth="793.0" prefHeight="588.0" prefWidth="793.0" scaleShape="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindowController">
+   <children>
+      <TableView fx:id="tableView" layoutX="114.0" layoutY="23.0" prefHeight="554.0" prefWidth="265.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="114.0" AnchorPane.topAnchor="23.0">
+        <columns>
+          <TableColumn fx:id="firstNameColumn" prefWidth="113.0" text="first Name" />
+          <TableColumn fx:id="lastNameColumn" prefWidth="68.0" text="last Name" />
+          <TableColumn fx:id="roomColumn" prefWidth="88.0" text="pokój" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="394.0" layoutY="25.0" prefHeight="203.0" prefWidth="361.0">
+         <children>
+            <VBox layoutX="14.0" layoutY="3.0" prefHeight="200.0" prefWidth="160.0" spacing="5.0" AnchorPane.bottomAnchor="0.0">
+               <children>
+                  <Label text="Imię">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textFieldFirstName" promptText="wprowadź imię" />
+                  <Label text="Nazwisko">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textFieldLastName" promptText="wprowadź nazwisko" />
+                  <Label text="Nr. pokoju">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textFieldRoom" promptText="podaj nr. pokoju" />
+               </children>
+            </VBox>
+            <VBox layoutX="187.0" layoutY="3.0" prefHeight="200.0" prefWidth="160.0" spacing="5.0">
+               <children>
+                  <Label text="godz. rozp. pracy">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textFieldStartHour" promptText="wprowadź godzinę" />
+                  <Label text="godz. zak. pracy">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textFieldFinishHour" prefHeight="25.0" prefWidth="118.0" promptText="wprowadź godzinę" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <Pane disable="true" layoutX="394.0" layoutY="248.0" maxWidth="361.0" opacity="0.85" prefHeight="301.0" prefWidth="361.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="394.0" AnchorPane.rightAnchor="38.0">
+         <children>
+            <Path fx:id="pathRoom4" fill="DODGERBLUE" layoutX="200.0" stroke="BLACK" strokeType="INSIDE">
+                <elements>
+                    <MoveTo />
+                  <LineTo />
+                  <LineTo y="100.0" />
+                  <LineTo x="160.0" y="100.0" />
+                  <LineTo x="160.0" />
+                  <LineTo />
+                </elements>
+            </Path>
+            <Path fx:id="pathRoom1" fill="DODGERBLUE" stroke="BLACK" strokeType="INSIDE">
+                <elements>
+                    <MoveTo />
+                    <LineTo />
+                  <LineTo y="100.0" />
+                  <LineTo x="150.0" y="100.0" />
+                  <LineTo x="150.0" />
+                  <LineTo />
+                </elements>
+            </Path>
+            <Path fx:id="pathRoom2" fill="DODGERBLUE" layoutY="100.0" stroke="BLACK" strokeType="INSIDE">
+                <elements>
+                    <MoveTo />
+                    <LineTo y="100.0" />
+                  <HLineTo x="150.0" />
+                  <VLineTo />
+                  <HLineTo />
+                </elements>
+            </Path>
+            <Path fx:id="pathRoom3" fill="DODGERBLUE" layoutY="200.0" strokeType="INSIDE">
+                <elements>
+                    <MoveTo />
+                    <LineTo x="150.0" />
+                  <LineTo x="200.0" y="100.0" />
+                  <HLineTo />
+                  <VLineTo />
+                </elements>
+            </Path>
+            <Path fx:id="pathRoom5" fill="DODGERBLUE" layoutX="200.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE">
+                <elements>
+                    <MoveTo />
+                    <LineTo y="100.0" />
+                  <LineTo x="50.0" y="200.0" />
+                  <HLineTo x="160.0" />
+                  <VLineTo />
+                  <HLineTo />
+                </elements>
+            </Path>
+            <Label text="1">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+            <Label layoutY="100.0" text="2">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+            <Label layoutY="200.0" text="3">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+            <Label layoutX="200.0" text="4">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+            <Label layoutX="200.0" layoutY="100.0" text="5">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <VBox layoutX="14.0" layoutY="26.0" prefHeight="250.0" prefWidth="100.0" spacing="20.0">
+         <children>
+            <Button fx:id="buttonLoad" minHeight="25.0" minWidth="60.0" mnemonicParsing="false" onAction="#handleButtonLoad" prefHeight="25.0" prefWidth="80.0" text="Wczytaj" />
+            <Button fx:id="buttonSave" minHeight="25.0" minWidth="60.0" mnemonicParsing="false" onAction="#handleButtonSave" prefHeight="25.0" prefWidth="80.0" text="Zapisz" />
+            <Button fx:id="buttonAdd" minWidth="60.0" mnemonicParsing="false" onAction="#handleButtonAdd" prefHeight="25.0" prefWidth="80.0" text="dodaj" />
+            <Button fx:id="buttonRaport" minWidth="60.0" mnemonicParsing="false" onAction="#handleButtonRaport" prefHeight="25.0" prefWidth="80.0" text="raport" />
+            <Button fx:id="buttonDelete" mnemonicParsing="false" onAction="#handleButtonDelete" prefHeight="25.0" prefWidth="80.0" text="Usuń" />
+         </children>
+      </VBox>
+      <Label layoutX="394.0" layoutY="245.0" text="Nr pokoju:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

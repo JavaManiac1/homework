@@ -1,0 +1,6 @@
+Jan Kowalski 1 9 17
+Piotr Szumrak 2 8 16
+Janina Nowak 3 8.30 15
+Zbigniew Zbyszewski 4 8 17
+Ewa Malinowska 5 7 14
+Damian Joniec 3 8 16,30
