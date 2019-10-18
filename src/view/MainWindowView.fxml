@@ -21,6 +21,12 @@
          <children>
             <VBox layoutX="14.0" layoutY="3.0" prefHeight="200.0" prefWidth="160.0" spacing="5.0" AnchorPane.bottomAnchor="0.0">
                <children>
+                  <Label prefHeight="17.0" prefWidth="155.0" text="identyfikator">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textFieldId" onDragEntered="#editId" onDragExited="#editId" onMouseClicked="#editId" onMouseDragEntered="#editId" promptText="wprowadź identyfikator" />
                   <Label text="Imię">
                      <font>
                         <Font size="20.0" />
@@ -33,12 +39,6 @@
                      </font>
                   </Label>
                   <TextField fx:id="textFieldLastName" promptText="wprowadź nazwisko" />
-                  <Label text="Nr. pokoju">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="textFieldRoom" promptText="podaj nr. pokoju" />
                </children>
             </VBox>
             <VBox layoutX="187.0" layoutY="3.0" prefHeight="200.0" prefWidth="160.0" spacing="5.0">
@@ -55,6 +55,12 @@
                      </font>
                   </Label>
                   <TextField fx:id="textFieldFinishHour" prefHeight="25.0" prefWidth="118.0" promptText="wprowadź godzinę" />
+                  <Label text="Nr. pokoju">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textFieldRoom" promptText="podaj nr. pokoju" />
                </children>
             </VBox>
          </children>
@@ -136,13 +142,15 @@
             </Label>
          </children>
       </Pane>
-      <VBox layoutX="14.0" layoutY="26.0" prefHeight="250.0" prefWidth="100.0" spacing="20.0">
+      <VBox layoutX="14.0" layoutY="26.0" prefHeight="361.0" prefWidth="100.0" spacing="20.0">
          <children>
             <Button fx:id="buttonLoad" minHeight="25.0" minWidth="60.0" mnemonicParsing="false" onAction="#handleButtonLoad" prefHeight="25.0" prefWidth="80.0" text="Wczytaj" />
             <Button fx:id="buttonSave" minHeight="25.0" minWidth="60.0" mnemonicParsing="false" onAction="#handleButtonSave" prefHeight="25.0" prefWidth="80.0" text="Zapisz" />
             <Button fx:id="buttonAdd" minWidth="60.0" mnemonicParsing="false" onAction="#handleButtonAdd" prefHeight="25.0" prefWidth="80.0" text="dodaj" />
             <Button fx:id="buttonRaport" minWidth="60.0" mnemonicParsing="false" onAction="#handleButtonRaport" prefHeight="25.0" prefWidth="80.0" text="raport" />
             <Button fx:id="buttonDelete" mnemonicParsing="false" onAction="#handleButtonDelete" prefHeight="25.0" prefWidth="80.0" text="Usuń" />
+            <Button fx:id="LoadFromDB" mnemonicParsing="false" onAction="#handleButtonLoadFromDB" prefHeight="25.0" prefWidth="94.0" text="Load from db" />
+            <Button fx:id="ButtonSaveToDB" mnemonicParsing="false" onAction="#handleButtonSaveToDb" prefHeight="25.0" prefWidth="92.0" text="save to DB" />
          </children>
       </VBox>
       <Label layoutX="394.0" layoutY="245.0" text="Nr pokoju:">

@@ -1,7 +1,9 @@
 package controller;
 	
 import java.io.IOException;
+import java.sql.SQLException;
 
+import data.DAOaccess;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -44,14 +46,13 @@ public class Main extends Application {
 			mainWindowController.setMain(this,primaryStage); //Dodanie powiązania kontrolera z klasą Main
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			databaseAccess();
-		}catch(IOException e){
+		}catch(IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public static void main(String[] args) {
 		launch(args);
-		databaseAccess();
+	//	databaseAccess();
 	}
 }

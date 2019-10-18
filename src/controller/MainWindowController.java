@@ -5,12 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Scanner;
+import java.sql.SQLException;
+import java.util.*;
 
+import data.DAOaccess;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -51,12 +49,15 @@ public class MainWindowController {
 	@FXML private Button buttonSave;
 	@FXML private Button buttonAdd;
 	@FXML private Button buttonRaport;
-	
+    @FXML private Button LoadFromDB;
+
+    @FXML private TextField textFieldId;
 	@FXML private TextField textFieldFirstName; 
 	@FXML private TextField textFieldLastName;
 	@FXML private TextField textFieldRoom;
 	@FXML private TextField textFieldStartHour;
 	@FXML private TextField textFieldFinishHour;
+
 	
 	//tableview fields
 	
@@ -77,7 +78,8 @@ public class MainWindowController {
 	private ObservableList<Person> personList = 
 			FXCollections.observableArrayList();
 	
-	
+	private List<Person> oldPersonList = new ArrayList<>();
+
 	public void initialize(){
 		firstNameColumn.setCellValueFactory(
 				new PropertyValueFactory<Person,String> ("firstName")
@@ -95,7 +97,6 @@ public class MainWindowController {
 									newVal.getFirstName()+ " " +
 									newVal.getLastName())
 									);
-		
 		
 		tableView.setOnMousePressed(new EventHandler<MouseEvent>() {
 
@@ -125,11 +126,46 @@ public class MainWindowController {
 		    	
 		    }
 		});
-	
+
+
+//        textFieldId.promptTextProperty().setValue(String.valueOf(new DAOaccess().getlastid()));
+//        textFieldId.promptTextProperty().set(String.valueOf(new DAOaccess().getlastid()));
+
+
 
 	}
-	
+	public void handleButtonLoadFromDB()
+    {
+        {
+            try {
+                setTableFromDatabase();
 
+            } catch (SQLException exc) {}
+        }
+    }
+    public void setTableFromDatabase() throws SQLException{
+	    personList.clear();
+	 try {
+		 DAOaccess dao = new DAOaccess();
+		 personList.addAll(dao.getPersons());
+		 oldPersonList.addAll(personList);
+	 }catch (SQLException w){}
+
+	}
+
+	public void handleButtonSaveToDb(){
+	    saveTableToDatabase(personList);
+    }
+
+	public void saveTableToDatabase(List<Person> personListList){
+
+
+
+	    DAOaccess dao = new DAOaccess();
+	    personListList.removeAll(oldPersonList);
+	    dao.saveToDB(personListList);
+	   // personList.clear();
+    }
 	
 	public void setTable(){
 		 try {
@@ -144,7 +180,7 @@ public class MainWindowController {
 					p.finishHour=in.next();
 
 					personList.add(new Person
-							(p.firstName,p.lastName,p.room,p.startHour,p.finishHour));
+							(p.personid, p.firstName,p.lastName,p.room,p.startHour,p.finishHour));
 
 				}
 			} catch (IOException e) {
@@ -212,7 +248,9 @@ public class MainWindowController {
 	
 	
 	
-	
+	public void editId(){
+        textFieldId.setText(String.valueOf(new DAOaccess().getlastid()));
+    }
 
 
 	//dodanie metody obs�ugi przycisku w klasie kontrollera
@@ -221,7 +259,7 @@ public class MainWindowController {
 		
 		//pathRoom1.setFill(Color.RED);
 		loadFile();
-		setTable();
+	//	setTable();
 		
 		System.out.println("button wczytaj  pressed");
 	}
@@ -245,7 +283,9 @@ public class MainWindowController {
 		}
 		else {
 			personList.add(new Person
-					(textFieldFirstName.getText(),
+					(
+					        Integer.parseInt(textFieldId.getText()),
+					        textFieldFirstName.getText(),
 							textFieldLastName.getText(),
 							textFieldRoom.getText(),
 							textFieldStartHour.getText(),
@@ -258,6 +298,7 @@ public class MainWindowController {
 			textFieldRoom.clear();
 			textFieldStartHour.clear();
 			textFieldFinishHour.clear();
+			textFieldId.clear();
 		}
 	}
 	

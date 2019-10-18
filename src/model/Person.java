@@ -2,7 +2,11 @@ package model;
 
 public class Person {
 
+	public int personid;
 	public  String firstName;
+
+
+
 	public String lastName;
 	public String room;
 	public String startHour;
@@ -12,7 +16,8 @@ public class Person {
 		
 	}
 	
-	public Person(String firstName,String lastName,String room,String startHour,String finishHour){
+	public Person(int personid,String firstName,String lastName,String room,String startHour,String finishHour){
+		this.personid = personid;
 		this.firstName=firstName;
 		this.lastName=lastName;
 		this.room =room;
@@ -39,9 +44,15 @@ public class Person {
 	public String getfinishHour(){
 		return finishHour;
 	}
-	
-	
-	
+
+
+	public int getPersonid() {
+		return personid;
+	}
+
+	public void setPersonid(int personid) {
+		this.personid = personid;
+	}
 	
 	public void setFirstName(String firstName){
 		this.firstName=firstName;
